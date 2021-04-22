@@ -9,12 +9,17 @@ class cat {
     public:
         cat(int wid = 300, vec2 cen = vec2(100,100), int dep=5, color backC = (color(255, 255, 255))) : width(wid), height(wid), center(cen), depth(dep), backgroundC(backC){
             color black = color(0,0,0);
-            vector<vec2> verticesHair = {vec2(cen.x()-width/2, cen.y()+width/2),
+            verticesHair = {vec2(cen.x(), cen.y()), 
+                                         vec2(cen.x()+.4*width, cen.y()+.4*width),
+                                         vec2(cen.x()-.4*width, cen.y()+.4*width)};
+            /*vector<vec2> verticesHair = {vec2(cen.x()-width/2, cen.y()+width/2),
                                         vec2(cen.x()-0.4*width, cen.y()+0.1*width), 
                                         vec2(cen.x()-0.2*width, cen.y()+width/2),
-                                        vec2(cen.x()+width/2, cen.y()+width/2),
-                                        vec2(cen.x()+0.4*width, cen.y()+0.1*width), 
-                                        vec2(cen.x()+0.2*width, cen.y()+width/2)};
+                                        vec2(cen.x()+0.2*width, cen.y()+width/2),
+                                        vec2(cen.x()+0.4*width, cen.y()+0.1*width),
+                                        vec2(cen.x()+width/2, cen.y()+width/2)};
+            */
+           
             Polygon hair(verticesHair, 1, black);
             hairEyesNose.push_back(hair);
 
@@ -59,6 +64,7 @@ class cat {
         vector<ellipse> face;
         vector<Polygon> hairEyesNose;
         vector<Rect> bangs;
+        vector<vec2> verticesHair;
         int depth;
         int width;
         int height;
