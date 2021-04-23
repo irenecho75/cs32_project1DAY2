@@ -62,6 +62,10 @@ class cat {
     int getWidth() {
         return width;
     }
+    void setWidth(int inWidth) {
+        width = inWidth;
+        calcShapePos();
+    }
     void setBackgroundC(color inC) {
         backgroundC = inC;
     }
@@ -86,6 +90,18 @@ class cat {
 
         // Calculates all the positions of the cat's vertices depending on the private vec2 center
         void calcShapePos() {
+
+            // Clear the vectors since translating may cause duplicates
+            face.clear();
+            hairEyesNose.clear();
+            bangsFace.clear();
+            verticesHair.clear();
+            verticesNose.clear();
+            verticesMouth.clear();
+            verticesMouth2.clear();
+            verticesEyeL.clear();
+            verticesEyeR.clear();
+
             color black = color(0,0,0);
             verticesHair = {vec2(center.x()-width/2, center.y()+width/2),
                                         vec2(center.x()-0.4*width, center.y()+0.1*width), 
