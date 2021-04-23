@@ -44,7 +44,7 @@ void writeOut(ostream& out, ppmR& theWriter, cat inputC) {
 				inC = drawC;
 			}
 			
-			if (inTrue) {			
+			if (inTrue) {		
 				theWriter.writePixel(out, x, y, inC);
 			}
 			else
@@ -72,6 +72,8 @@ int main(int argc, char *argv[]) {
 	ppmR theWriter(sizeX, sizeY);
 
 	cat sammy;
+	vec2 cool(600, 600);
+	sammy.translate(cool);
 
 
 	outFile.open(argv[3]);
